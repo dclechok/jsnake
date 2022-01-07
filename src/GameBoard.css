@@ -1,0 +1,9 @@
+.gameboard{
+    border-style: solid;
+    border-width: 8px;
+    border-color: black;
+    height: 400px;
+    width: 400px;
+    margin: auto;
+    padding: 0;
+}

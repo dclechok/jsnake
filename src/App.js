@@ -1,9 +1,10 @@
 import './App.css';
+import GameBoard from './GameBoard';
 
-function App() {
+function App() { //gameboard
   return (
     <div className="App">
-        HELLO
+        <GameBoard />
     </div>
   );
 }

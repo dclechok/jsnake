@@ -1,0 +1,10 @@
+.segment{
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(46, 46, 46);
+}

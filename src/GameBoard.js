@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function GameBoard() {
   const [direction, setDirection] = useState(null); //randomize starting direction
-  const [moving, setMoving] = useState(true);
+
   const [currentPosition, setCurrentPosition] = useState({
     top: null,
     left: null,
@@ -13,21 +13,19 @@ function GameBoard() {
   useEffect(() => {
     let snakeHeadPos = document.getElementById("snake-head");
     snakeHeadPos.style.position = "relative"; //relative to our game board
-    console.log(
-      snakeHeadPos.offsetTop,
-      snakeHeadPos.offsetWidth,
-      snakeHeadPos.offsetHeight,
-      snakeHeadPos.offsetLeft
-    );
+    // console.log(
+    //   snakeHeadPos.offsetTop,
+    //   snakeHeadPos.offsetWidth,
+    //   snakeHeadPos.offsetHeight,
+    //   snakeHeadPos.offsetLeft
+    // );
 
     async function moveSnake() {
       window.addEventListener("keydown", (e) => {
         // our controls
         if (e.key === "w") {
           console.log("going north");
-          setTimeout(() => {
-            snakeHeadPos.style.top = `${currentPosition.top - 1}px`; // 380 is MAX *from* top
-          }, 50);
+          snakeHeadPos.style.top = `${currentPosition.top - 1}px`; // 380 is MAX *from* top
           setCurrentPosition({
             top: (currentPosition.top -= 1),
             left: currentPosition.left,
@@ -36,9 +34,7 @@ function GameBoard() {
         }
         if (e.key === "a") {
           console.log("going west");
-          setTimeout(() => {
-            snakeHeadPos.style.left = `${currentPosition.left - 1}px`;
-          }, 50);
+          snakeHeadPos.style.left = `${currentPosition.left - 1}px`;
           setCurrentPosition({
             top: currentPosition.top,
             left: (currentPosition.left -= 1),
@@ -47,9 +43,7 @@ function GameBoard() {
         } // left -=1}
         if (e.key === "s") {
           console.log("going south");
-          setTimeout(() => {
-            snakeHeadPos.style.top = `${currentPosition.top + 1}px`; // 380 is MAX *from* top
-          }, 50);
+          snakeHeadPos.style.top = `${currentPosition.top + 1}px`; // 380 is MAX *from* top
           setCurrentPosition({
             top: (currentPosition.top += 1),
             left: currentPosition.left,
@@ -59,19 +53,17 @@ function GameBoard() {
         }
         if (e.key === "d") {
           console.log("going east");
-          setTimeout(() => {
-            snakeHeadPos.style.left = `${currentPosition.left + 1}px`;
-          }, 50);
+          snakeHeadPos.style.left = `${currentPosition.left + 1}px`;
           setCurrentPosition({
             top: currentPosition.top,
             left: (currentPosition.left += 1),
           });
           if (currentPosition.left >= 381) console.log("dead - east wall"); //ran into a wall
-        } // right += 1
+        } 
       });
     }
     moveSnake();
-    // setDirection(null);
+
   }, [direction]);
 
   return (

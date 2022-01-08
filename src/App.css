@@ -3,6 +3,7 @@
 .App {
   text-align: center;
   font-family: 'Indie Flower', cursive;
+  caret-color: rgba(0, 0, 0, 0);
 }
 
 button{
